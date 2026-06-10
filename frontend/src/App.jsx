@@ -13,6 +13,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 
 import Login from "./pages/Auth/Login";
 import SignUp from "./pages/Auth/SignUp";
+import VerifyEmail from "./pages/Auth/VerifyEmail";
 import LandingPage from "./LandingPage";
 import Dashboard from "./pages/Home/Dashboard";
 import ProgressTrackerDashboard from "./pages/Home/ProgressTrackerDashboard";
@@ -74,6 +75,16 @@ const App = () => {
                     <ErrorBoundary>
                       <PageTransition>
                         <Login />
+                      </PageTransition>
+                    </ErrorBoundary>
+                  }
+                />
+                <Route
+                  path="/verify-email"
+                  element={
+                    <ErrorBoundary>
+                      <PageTransition>
+                        <VerifyEmail />
                       </PageTransition>
                     </ErrorBoundary>
                   }
