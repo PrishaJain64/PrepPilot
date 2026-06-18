@@ -33,7 +33,15 @@ export default function AIHelper() {
 
     if (!res.ok) {
       const txt = await res.text();
-      throw new Error(txt || `Status ${res.status}`);
+      let friendlyMessage = `Request failed (Status ${res.status})`;
+      try {
+        const parsed = JSON.parse(txt);
+        if (parsed.message) {
+          friendlyMessage = parsed.message;
+        }
+      } catch {
+      }
+      throw new Error(friendlyMessage);
     }
 
     if (res.body && typeof res.body.getReader === "function") {

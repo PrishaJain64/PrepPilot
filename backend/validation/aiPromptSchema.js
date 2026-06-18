@@ -39,9 +39,9 @@ const aiPromptSchema = Joi.object({
     .required()
     .custom(safePrompt, "Prompt Injection Protection"),
 
-  role: Joi.string().min(2).max(50).required().custom(safePrompt, "Role Injection Protection"),
+  role: Joi.string().min(2).max(50).optional().custom(safePrompt, "Role Injection Protection"),
 
-  topic: Joi.string().min(2).max(100).required().custom(safePrompt, "Topic Injection Protection"),
+  topic: Joi.string().min(2).max(100).optional().custom(safePrompt, "Topic Injection Protection"),
 });
 
 module.exports = aiPromptSchema;
